@@ -1,1 +1,1 @@
-# Group_2_Game_Project
+# Group 2 - Game Project
