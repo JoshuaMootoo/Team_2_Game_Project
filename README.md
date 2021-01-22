@@ -1,4 +1,4 @@
-# Group 2 - Game Project
+# Team 2 - Game Project
 
 ## Group Members
 - Alejandro Vaughan
