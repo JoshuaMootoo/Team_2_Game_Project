@@ -19,11 +19,11 @@ public class UI_Controller : MonoBehaviour
 
     [Header("Light Collectables")]
     [SerializeField] Image[] lightCollectables = new Image[3];
+    [SerializeField] Image[] endLevelUI = new Image[3];
     [SerializeField] Color[] lightIconColours = new Color[2];
 
     [Header("Other")]
     [SerializeField] Game_Controller gameController;
-    public GameObject interactPrompt;
     Player_Controller player;
 
     private void Awake()
@@ -73,8 +73,16 @@ public class UI_Controller : MonoBehaviour
         //  Light Collectables
         for (int i = 0; i < 3; i++)
         {
-            if (gameController.lights[i] == true) lightCollectables[i].color = lightIconColours[0];
-            else lightCollectables[i].color = lightIconColours[1];
+            if (gameController.lights[i] == true)
+            {
+                lightCollectables[i].color = lightIconColours[0];
+                endLevelUI[i].color = lightIconColours[0];
+            }
+            else
+            {
+                lightCollectables[i].color = lightIconColours[1];
+                endLevelUI[i].color = lightIconColours[1];
+            }
         }
     }
 }

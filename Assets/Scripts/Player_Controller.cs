@@ -44,12 +44,14 @@ public class Player_Controller : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] Animator anim;
-    private Rigidbody2D rb2d;
+    public Rigidbody2D rb2d;
+    EndLevel_Controller endLevelController;
 
     private void Start()
     {
         rb2d = this.GetComponent<Rigidbody2D>();
         walljumpAngle.Normalize();
+        endLevelController = FindObjectOfType<EndLevel_Controller>();
 
         currentHealth = maxHealth;
     }
@@ -63,10 +65,12 @@ public class Player_Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Movement();
-        Jump();
-        PlayerTransform();
-        BallWallBounce();
+        if (!endLevelController.isEndLevel)
+        {
+            Movement();
+            Jump();
+            PlayerTransform();
+        }
     }
 
     void PlayerInputs()
@@ -174,11 +178,6 @@ public class Player_Controller : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(0, 0, 0);
             rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-    }
-
-    void BallWallBounce()
-    {
-
     }
 
     void AnimationsController()

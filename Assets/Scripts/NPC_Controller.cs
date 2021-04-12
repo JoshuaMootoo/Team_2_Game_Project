@@ -21,8 +21,6 @@ public class NPC_Controller : MonoBehaviour
         {
             isActive = !isActive;
         }
-        if (canInteract) UIController.interactPrompt.SetActive(true);
-        else UIController.interactPrompt.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
