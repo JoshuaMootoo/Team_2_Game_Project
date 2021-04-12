@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - GroundCheck
+  - UI
   layers:
   - Default
   - TransparentFX
